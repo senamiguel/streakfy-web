@@ -42,33 +42,53 @@ export default function Register() {
       [name]: value
     }));
   };
-
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     setError("");
     setIsLoading(true);
 
+    const dataToSend = {
+      name: `${formData.first_name} ${formData.last_name}`,
+      email: formData.email,
+      password: formData.password,
+    };
+
     try {
-      const response = await fetch("http://localhost:3001/auth/login", {
+      const registerResponse = await fetch("http://localhost:3001/users/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(dataToSend),
       });
-      if (!response.ok) {
-        throw new Error("Invalid email or password");
+
+      if (!registerResponse.ok) {
+        throw new Error("Failed to create account");
       }
 
-      const data = await response.json();
+      const loginResponse = await fetch("http://localhost:3001/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dataToSend),
+      });
+
+      if (!loginResponse.ok) {
+        throw new Error("Failed to login");
+      }
+
+      const data = await loginResponse.json();
       localStorage.setItem("token", data.access_token);
       router.push("/profile");
+
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred");
     } finally {
       setIsLoading(false);
     }
   };
+
 
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
