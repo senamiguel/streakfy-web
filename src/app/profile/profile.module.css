@@ -305,17 +305,44 @@
   background-color: #007bff;
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 2rem;
   border-radius: 4px;
   cursor: pointer;
   font-weight: 500;
-  width: 100%;
-  margin-top: 1rem;
   transition: background-color 0.3s ease;
 }
 
 .save_button:hover {
   background-color: #0056b3;
+}
+
+.cancel_button {
+  background-color: #f0f0f0 !important;
+  color: #333 !important;
+  border: 1px solid #ddd !important;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.cancel_button:hover {
+  background-color: #e0e0e0 !important;
+  border-color: #ccc !important;
+}
+
+.save_button:disabled,
+.cancel_button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error_message {
+  color: #dc3545;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
 }
 
 .logout_button {
@@ -360,4 +387,70 @@
 
 .password_toggle:hover {
   color: #007bff;
-} 
+}
+
+.modal_content {
+  padding: 2rem;
+}
+
+.modal_content h2 {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.upload_section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.preview_image {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.preview_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.edit_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.preview_image:hover .edit_overlay {
+  opacity: 1;
+}
+
+.edit_icon {
+  font-size: 2rem;
+  color: white;
+}
+
+.modal_actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
