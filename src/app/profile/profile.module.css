@@ -1,0 +1,363 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.sidebar {
+  width: 300px;
+  background-color: white;
+  padding: 1.5rem;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 95vh;
+  position: sticky;
+  top: 0;
+}
+
+.profile_info {
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.avatar {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1rem;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.edit_avatar {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  transition: background-color 0.3s ease;
+}
+
+.edit_avatar:hover {
+  background-color: #0056b3;
+}
+
+.email {
+  color: #666;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.stat_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat_value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #007bff;
+}
+
+.stat_label {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-top: 1.5rem;
+}
+
+.nav_items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav_item {
+  padding: 0.75rem 1rem;
+  border: none;
+  background: none;
+  text-align: left;
+  font-size: 1rem;
+  color: #666;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.nav_item:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.nav_item.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.main_content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.section_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.add_button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.add_button:hover {
+  background-color: #0056b3;
+}
+
+.streaks_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.streak_card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.streak_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.streak_days {
+  background-color: #e3f2fd;
+  color: #007bff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.streak_progress {
+  margin-bottom: 1.5rem;
+}
+
+.progress_bar {
+  height: 8px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress {
+  height: 100%;
+  background-color: #007bff;
+  border-radius: 4px;
+}
+
+.streak_stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  text-align: center;
+}
+
+.achievements_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.achievement_card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.achievement_icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.achievement_date {
+  display: block;
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+.settings_form {
+  max-width: 600px;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form_group {
+  margin-bottom: 1.5rem;
+}
+
+.form_group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.form_group input[type="text"],
+.form_group input[type="email"],
+.form_group input[type="password"] {
+  width: 96%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form_group input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.toggle input[type="checkbox"] {
+  width: 40px;
+  height: 20px;
+  appearance: none;
+  background-color: #ddd;
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle input[type="checkbox"]:checked {
+  background-color: #007bff;
+}
+
+.toggle input[type="checkbox"]::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: white;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s ease;
+}
+
+.toggle input[type="checkbox"]:checked::before {
+  transform: translateX(20px);
+}
+
+.save_button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  width: 100%;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.save_button:hover {
+  background-color: #0056b3;
+}
+
+.logout_button {
+  margin-top: auto;
+  padding: 0.75rem 1rem;
+  border: none;
+  background-color: #dc3545;
+  color: white;
+  text-align: left;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.logout_button:hover {
+  background-color: #c82333;
+}
+
+.password_input_container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password_input_container input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+.password_toggle {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 1.2rem;
+  color: #666;
+  transition: color 0.3s ease;
+}
+
+.password_toggle:hover {
+  color: #007bff;
+} 
