@@ -23,11 +23,13 @@ const IridescenceBackground = memo(() => (
 
 IridescenceBackground.displayName = 'IridescenceBackground';
 
-export default function Login() {
+export default function Register() {
   const router = useRouter();
   const [formData, setFormData] = useState({
+    first_name: "",
+    last_name: "",
     email: "",
-    password: "",
+    password: ""
   });
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -77,8 +79,33 @@ export default function Login() {
       <IridescenceBackground />
       <div className={styles.container_right}>
         <form onSubmit={handleSubmit} className={styles.form}>
-          <h2>Login</h2>
+          <h2>Register</h2>
           {error && <div className={styles.error}>{error}</div>}
+          <div className={styles.form_name}>
+            <div className={styles.form_group}>
+              <label htmlFor="first_name">Full name:</label>
+              <input
+                type="text"
+                id="first_name"
+                name="first_name"
+                value={formData.first_name}
+                onChange={handleChange}
+                required
+                placeholder="Enter your first name"
+              />
+            </div>
+            <div className={styles.form_group} >
+              <input
+                type="text"
+                id="last_name"
+                name="last_name"
+                value={formData.last_name}
+                onChange={handleChange}
+                required
+                placeholder="Enter your last name"
+              />
+            </div>
+          </div>
           <div className={styles.form_group}>
             <label htmlFor="email">Email:</label>
             <input
@@ -115,10 +142,10 @@ export default function Login() {
             </div>
           </div>
           <button type="submit" disabled={isLoading} className={styles.submit_button}>
-            {isLoading ? "Logging in..." : "Login"}
+            {isLoading ? "Registering..." : "Register"}
           </button>
-          <p>Don't have an account?</p>
-          <a href="/register" className={styles.register_link}>Register</a>
+          <p>Already have an account?</p>
+          <a href="/login" className={styles.login_link}>Login</a>
         </form>
       </div>
     </div>
